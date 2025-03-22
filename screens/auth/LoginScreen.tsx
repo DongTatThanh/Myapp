@@ -17,7 +17,8 @@ const LoginScreen = () => {
           style={styles.input} 
           placeholder="Mật khẩu" 
           secureTextEntry 
-        />
+        /> 
+        
         <Button 
           title='Login' 
           onPress={async () => await AsyncStorage.setItem('assetToken', 'dghjk')} 
