@@ -2,9 +2,9 @@ import { View, Image, TouchableOpacity, StyleSheet, ImageStyle, TextStyle, ViewS
 import React from 'react'
 import { globalStyyles } from '@/styles/globalStyles';
 import Swiper from 'react-native-swiper'
-import { appInfos } from '@/src/contants/appInfos';
+import { appInfos } from '../../src/constants/appInfos';
 import { useNavigation } from '@react-navigation/native';
-import { appColor } from '@/src/contants/appColors';
+import { appColor } from '../../src/constants/appColors';
 
 const OnbroadingScreen = () => {
   const navigation = useNavigation();
@@ -24,22 +24,22 @@ const OnbroadingScreen = () => {
       >
         <View style={styles.slide}>
           <Image 
-            source={require('../../assets/images/on1.png')} 
-            style={styles.image}
+            source={require('../../assets/images/SlapScreen3.jpg')} 
+            style={styles.fullImage}
           />
         </View>
 
         <View style={styles.slide}>
           <Image 
-            source={require('../../assets/images/on2.png')} 
-            style={styles.image}
+            source={require('../../assets/images/SlapScreen2.jpg')} 
+            style={styles.fullImage}
           />
         
         </View>
 
         <View style={styles.slide}>
           <Image 
-            source={require('../../assets/images/on3.png')} 
+            source={require('../../assets/images/SlapScreen1.jpg')} 
             style={styles.fullImage}
           />
             <TouchableOpacity 
@@ -75,9 +75,10 @@ const styles = StyleSheet.create({
   loginButton: {
     position: 'absolute',
     bottom: 50,
-    right: 40, // Added this line
-    width: '80%',
-    backgroundColor: 'green', // Changed this line
+    right: 25, // Added this line
+    width: '86%',
+    backgroundColor: 'black', // Changed this line
+    borderRadius:30,
   } as ViewStyle,
   squareButton: {
     borderRadius: 40,

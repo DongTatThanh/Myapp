@@ -4,7 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen, OnbroadingScreen } from '@/screens';
 import { Ionicons } from '@expo/vector-icons';
 import { globalStyyles } from '@/styles/globalStyles';
-import { appColor } from '@/src/contants/appColors';
+
+import ForgetPasswordScreen from '@/screens/auth/ForgetPasswordScreen';
+import RegisterScreen from '@/screens/auth/RegisterScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,12 +18,16 @@ const AuthNavigation = () => {
         component={OnbroadingScreen} 
       />
       <Stack.Screen 
-        name="QR" 
-        component={OnbroadingScreen} 
-      />
-      <Stack.Screen 
         name="LoginScreen" 
         component={LoginScreen} 
+      />
+      <Stack.Screen 
+        name="RegisterScreen" 
+        component={RegisterScreen}
+      /> 
+      <Stack.Screen 
+        name="ForgetPasswordScreen" 
+        component={ForgetPasswordScreen}
       />
     </Stack.Navigator>
   );
