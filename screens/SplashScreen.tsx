@@ -1,6 +1,6 @@
 import { View, Text, ImageBackground, Image, ActivityIndicator } from 'react-native';
 import React from 'react';
-import { appColor } from '@/src/contants/appColors';
+import { appColor } from '../src/constants/appColors';
 import { SpaceComponents, Spacer } from '@/components';
 
 
@@ -9,7 +9,7 @@ import { SpaceComponents, Spacer } from '@/components';
 const SplashScreen = () => {
   return (
     <ImageBackground
-      source={require("../assets/images/logo1.png")}
+      source={require("../assets/images/SlapScreen.jpg")}
       style={{
         flex: 1,
         justifyContent: 'center',

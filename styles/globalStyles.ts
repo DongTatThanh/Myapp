@@ -1,4 +1,4 @@
-import { appColor } from "@/src/contants/appColors";
+import { appColor } from "../src/constants/appColors";
 import { StyleSheet, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get('window');
@@ -69,7 +69,7 @@ export const globalStyyles = StyleSheet.create({
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: appColor.text || '#333',
+        color: appColor.black,
         marginBottom: 10,
     },
     subtitle: {
