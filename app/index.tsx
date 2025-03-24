@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import AuthNavigation from '@/navigation/AuthNavigation';
 import { SplashScreen } from '@/screens';
 import { StatusBar } from 'react-native';
 import MainNavigator from '@/navigation/MainNavigator';
@@ -31,11 +30,10 @@ const Index = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" translucent={false} />
       {isShowSplash ? (
         <SplashScreen />
-      ) : accessToken ? (
-        <MainNavigator />
       ) : (
-        <AuthNavigation />
-      )}
+        <MainNavigator />
+      )
+      }
     </>
   );
 };

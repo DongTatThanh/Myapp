@@ -1,10 +1,11 @@
-import { View, Image, TouchableOpacity, StyleSheet, ImageStyle, TextStyle, ViewStyle, Text } from 'react-native'
-import React from 'react'
+import { View, Image, TouchableOpacity, StyleSheet, ImageStyle, TextStyle, ViewStyle, Text, Dimensions } from 'react-native';
+import React from 'react';
 import { globalStyyles } from '@/styles/globalStyles';
-import Swiper from 'react-native-swiper'
-import { appInfos } from '../../src/constants/appInfos';
+import Swiper from 'react-native-swiper';
 import { useNavigation } from '@react-navigation/native';
 import { appColor } from '../../src/constants/appColors';
+
+const { width, height } = Dimensions.get('window');
 
 const OnbroadingScreen = () => {
   const navigation = useNavigation();
@@ -34,7 +35,6 @@ const OnbroadingScreen = () => {
             source={require('../../assets/images/SlapScreen2.jpg')} 
             style={styles.fullImage}
           />
-        
         </View>
 
         <View style={styles.slide}>
@@ -42,7 +42,7 @@ const OnbroadingScreen = () => {
             source={require('../../assets/images/SlapScreen1.jpg')} 
             style={styles.fullImage}
           />
-            <TouchableOpacity 
+          <TouchableOpacity 
             style={[globalStyyles.primaryButton, styles.loginButton]}
             onPress={handleNavigateToLogin}
           >
@@ -53,8 +53,8 @@ const OnbroadingScreen = () => {
         </View>
       </Swiper>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   slide: {
@@ -62,40 +62,18 @@ const styles = StyleSheet.create({
     alignItems: 'center' as const,
     justifyContent: 'center' as const,
   } as ViewStyle,
-  image: {
-    width: appInfos.sizes.WIDTH,
-    height: appInfos.sizes.HEIGHT,
-    resizeMode: 'contain' as const,
-  } as ImageStyle,
   fullImage: {
-    width: appInfos.sizes.WIDTH,
-    height: appInfos.sizes.HEIGHT,
+    width: width,
+    height: height,
     resizeMode: 'cover' as const,
   } as ImageStyle,
   loginButton: {
     position: 'absolute',
     bottom: 50,
-    right: 25, // Added this line
+    right: 25,
     width: '86%',
-    backgroundColor: 'black', // Changed this line
-    borderRadius:30,
-  } as ViewStyle,
-  squareButton: {
-    borderRadius: 40,
-    position: 'absolute',
-    bottom: 50,
-    width: 50,
-    height: 50,
-    backgroundColor: '#ffffff',
-
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    backgroundColor: 'black',
+    borderRadius: 30,
   } as ViewStyle,
   dot: {
     backgroundColor: 'rgba(0,0,0,.2)',

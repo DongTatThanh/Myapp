@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { LoginScreen, OnbroadingScreen } from '@/screens';
+import { HomeScreen, LoginScreen, OnbroadingScreen } from '@/screens';
 import { Ionicons } from '@expo/vector-icons';
 import { globalStyyles } from '@/styles/globalStyles';
 
@@ -28,7 +28,13 @@ const AuthNavigation = () => {
       <Stack.Screen 
         name="ForgetPasswordScreen" 
         component={ForgetPasswordScreen}
+
       />
+       <Stack.Screen 
+      name="HomeScreen" 
+      component={HomeScreen}
+
+    />
     </Stack.Navigator>
   );
 };

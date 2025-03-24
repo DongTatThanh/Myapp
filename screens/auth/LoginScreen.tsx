@@ -35,7 +35,7 @@ const LoginScreen = () => {
           </TouchableOpacity>
         </View>
         
-        <TouchableOpacity  onPress={() => navigation.navigate('HomeScreen' as never)}
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen' as never)}
           style={styles.loginButton}
         >
           <Text style={styles.loginButtonText}>Đăng nhập</Text>
