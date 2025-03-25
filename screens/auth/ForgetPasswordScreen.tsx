@@ -124,11 +124,12 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   loginText: {
-    color: appColor.gray,
+    color: appColor.black,
     fontSize: 16,
+    fontWeight:'bold',
   },
   loginLink: {
-    color: appColor.black,
+    color : '#ffffff9c',
     fontSize: 16,
     fontWeight: 'bold',
   },

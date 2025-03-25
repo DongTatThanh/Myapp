@@ -7,12 +7,13 @@ import { globalStyyles } from '@/styles/globalStyles';
 
 import ForgetPasswordScreen from '@/screens/auth/ForgetPasswordScreen';
 import RegisterScreen from '@/screens/auth/RegisterScreen';
+import BookingScreen from '@/screens/booking/BookingScreen';
 
 const Stack = createStackNavigator();
 
 const AuthNavigation = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator initialRouteName='LoginScreen' screenOptions={{ headerShown: false }}>
       <Stack.Screen 
         name="Onboarding" 
         component={OnbroadingScreen} 
@@ -35,6 +36,9 @@ const AuthNavigation = () => {
       component={HomeScreen}
 
     />
+     <Stack.Screen 
+     name="BookingScreen"
+      component={BookingScreen} />
     </Stack.Navigator>
   );
 };
