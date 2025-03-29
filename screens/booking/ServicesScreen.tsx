@@ -17,7 +17,7 @@ import { RootStackParamList } from '../../navigation/types';
 const { width } = Dimensions.get('window');
 
 // Placeholder image - replace with actual images
-const placeholderImage = require('../assets/images/service-placeholder.jpg');
+const placeholderImage = require('../../assets/images/a.jpg');
 
 // Service data
 const servicesData: Record<string, {
@@ -77,7 +77,7 @@ const servicesData: Record<string, {
   }
 };
 
-type ServicesScreenRouteProp = RouteProp<RootStackParamList, 'Services'>;
+type ServicesScreenRouteProp = RouteProp<RootStackParamList, 'ServicesScreen'>;
 
 const ServicesScreen: React.FC = () => {
   const route = useRoute<ServicesScreenRouteProp>();
@@ -163,7 +163,7 @@ const ServicesScreen: React.FC = () => {
                   <TouchableOpacity 
                     key={item.id}
                     style={styles.otherServiceCard}
-                    onPress={() => navigation.replace('Services', { id: item.id })}
+                    onPress={() => navigation.replace('ServicesScreen', { id: item.id })}
                   >
                     <Image 
                       source={item.image} 

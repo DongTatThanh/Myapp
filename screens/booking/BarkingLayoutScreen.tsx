@@ -24,7 +24,7 @@ const generateParkingSpots = (zoneId: string, count: number) => {
   for (let i = 1; i <= count; i++) {
     const spotId = `${zoneId}${i.toString().padStart(2, '0')}`;
     const isAvailable = Math.random() > 0.4; // 60% available
-    const isDisabled = Math.random() > 0.9; // 10% disabled parking
+    const isDisabled = Math.random() > 0.9; // 10% disabled parking 
     
     spots.push({
       id: spotId,
@@ -53,7 +53,7 @@ type ParkingSpot = {
   isSelected: boolean;
 };
 
-type ParkingLayoutScreenRouteProp = RouteProp<RootStackParamList, 'ParkingLayout'>;
+type ParkingLayoutScreenRouteProp = RouteProp<RootStackParamList, 'BarkingLayoutScreen'>
 
 const ParkingLayoutScreen: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -100,7 +100,7 @@ const ParkingLayoutScreen: React.FC = () => {
             style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
-            <Text style={styles.backButtonText}>← Quay lại</Text>
+            <Text style={styles.backButtonText}>← </Text>Back
           </TouchableOpacity>
           
           <Text style={styles.headerTitle}>Sơ đồ khu {zoneId}</Text>
@@ -121,12 +121,6 @@ const ParkingLayoutScreen: React.FC = () => {
               <View style={[styles.legendIcon, styles.occupiedIcon]} />
               <Text style={styles.legendText}>Đã đặt</Text>
             </View>
-            
-            <View style={styles.legendItem}>
-              <View style={[styles.legendIcon, styles.disabledIcon]} />
-              <Text style={styles.legendText}>Dành cho người khuyết tật</Text>
-            </View>
-            
             <View style={styles.legendItem}>
               <View style={[styles.legendIcon, styles.selectedIcon]} />
               <Text style={styles.legendText}>Đã chọn</Text>
@@ -226,7 +220,7 @@ const ParkingLayoutScreen: React.FC = () => {
                           "Đặt chỗ thành công",
                           "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!"
                         );
-                        navigation.navigate('Home');
+                        navigation.navigate('PaymentScreen' as never);
                       }
                     }
                   ]

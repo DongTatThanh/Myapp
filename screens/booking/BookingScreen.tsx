@@ -111,7 +111,7 @@ const BookingScreen: React.FC = () => {
                       zone.availableSpots === 0 && styles.zoneCardDisabled
                     ]}
                     disabled={zone.availableSpots === 0}
-                    onPress={() => navigation.navigate('ParkingLayout', { zoneId: zone.id })}
+                    onPress={() => navigation.navigate('BarkingLayoutScreen', { zoneId: zone.id })}
                   >
                     <View style={styles.zoneCardHeader}>
                       <Text style={styles.zoneName}>{zone.name}</Text>

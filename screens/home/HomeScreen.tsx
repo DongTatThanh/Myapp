@@ -13,7 +13,8 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../navigation/types';
-import BookingScreen from '../booking/BookingScreen';
+
+
 const { width } = Dimensions.get('window');
 
 // Placeholder services data
@@ -22,19 +23,16 @@ const serviceData = [
   { id: '2', title: 'Bảo dưỡng xe', image: require('../../assets/images/SlapScreen1.jpg') },
   { id: '3', title: 'Rửa xe tại nhà', image: require('../../assets/images/SlapScreen1.jpg') },
   { id: '4', title: 'Thay nhớt tận nơi', image: require('../../assets/images/SlapScreen1.jpg') },
-   { id: '1', title: 'Sửa xe tận nơi', image: require('../../assets/images/SlapScreen1.jpg') },
-  { id: '2', title: 'Bảo dưỡng xe', image: require('../../assets/images/SlapScreen1.jpg') },
-  { id: '3', title: 'Rửa xe tại nhà', image: require('../../assets/images/SlapScreen1.jpg') },
-  { id: '4', title: 'Thay nhớt tận nơi', image: require('../../assets/images/SlapScreen1.jpg') },
+  
 ];
 
 // Placeholder categories data
 const categoryData = [
-  { id: '1', title: 'Đặt Chỗ', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'BookingScreen' },
-  { id: '2', title: 'Thông Tin Chỗ Đặt', image: require('../../assets/images/SlapScreen1.jpg'), screen:'ParkingLayoutScreen' },
-  { id: '3', title: 'Bảo Hiểm Xe', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'BookingScreen' },
+  { id: '1', title: 'Đặt Chỗ', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'HistoryScreen' },
+  { id: '2', title: 'Thông Tin Chỗ Đặt', image: require('../../assets/images/SlapScreen1.jpg'), screen:'BookingConfirmationScreen'},
+  { id: '3', title: 'Bảo Hiểm Xe', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'PaymentScreen' },
   { id: '4', title: 'Về chúng tôi', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'BookingScreen' },
-]; // ✅ ĐÃ SỬA ĐÚNG
+]; 
 
 type ServiceCardProps = {
   id: string;
@@ -42,13 +40,14 @@ type ServiceCardProps = {
   image: any;
 }
 
+
 const ServiceCard: React.FC<ServiceCardProps> = ({ id, title, image }) => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   
   return (
     <TouchableOpacity 
       style={styles.serviceCard}
-      onPress={() => navigation.navigate('Services', { id })}
+      onPress={() => navigation.navigate("ServicesScreen", { id })}
     >
       <View style={styles.imageContainer}>
         <Image source={image} style={styles.serviceImage} resizeMode="cover" />
@@ -70,7 +69,9 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, screen }) => 
   return (
     <TouchableOpacity 
       style={styles.categoryCard}
-      onPress={() => navigation.navigate("BookingScreen")}
+      onPress={() => {
+        navigation.navigate(screen);
+      }} 
     >
       <View style={styles.categoryIconContainer}>
         <Image source={image} style={styles.categoryIcon} resizeMode="contain" />
@@ -82,6 +83,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, screen }) => 
 
 const HomeScreen: React.FC = () => {
   const scrollViewRef = useRef<ScrollView>(null);
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   
   useEffect(() => {
     // Auto-scroll for services
@@ -118,15 +120,7 @@ const HomeScreen: React.FC = () => {
            <View style={styles.heroContent}>
             <Text style={styles.heroTitle}>TÌM BÃI NHANH</Text>
             <Text style={styles.heroSubtitle}>ĐỖ AN TÂM!</Text>
-            <TouchableOpacity 
-              style={styles.heroButton}
-              onPress={() => {
-                const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-                navigation.navigate('BookingScreen');
-              }}
-            >
-              <Text  style={styles.heroButtonText}>Đặt Chỗ Ngay</Text>
-            </TouchableOpacity>
+
           </View>
         </View>
         
@@ -201,7 +195,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f9fa',
   },
   heroSection: {
-    height: 400,
+    height: 250,
     position: 'relative',
   },
   heroImage: {
@@ -373,6 +367,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
   },
 });
+
 
 export default HomeScreen;
 

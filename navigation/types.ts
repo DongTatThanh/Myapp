@@ -1,9 +1,15 @@
 export type RootStackParamList = {
-    Home: undefined;
-    Services: { id: string };
-    BookingScreen: undefined;
-    ParkingLayout: { zoneId: string };
-    Info: undefined;
-    Insurance: undefined;
-    About: undefined;
-  };
+  
+  
+  BookingScreen: undefined;
+  BarkingLayoutScreen: { zoneId: string };
+  PaymentScreen: { spotId: string; amount: number; duration: string };
+  ServicesScreen: { id: string };
+};
+
+export type BottomTabParamList = {
+  HomeScreen: undefined;
+  HistorySreen: undefined;
+  NotificationScreen: undefined;
+  ProfileScreen: undefined;
+};
