@@ -159,9 +159,8 @@ const ParkingLayoutScreen: React.FC = () => {
                         disabled={!spot.isAvailable}
                       >
                         <Text style={styles.spotLabel}>{spot.id}</Text>
-                        {spot.isDisabled && (
-                          <Text style={styles.disabledIcon}>♿</Text>
-                        )}
+                      
+                        )
                       </TouchableOpacity>
                     );
                   })}
@@ -215,12 +214,18 @@ const ParkingLayoutScreen: React.FC = () => {
                     },
                     { 
                       text: "Xác nhận", 
-                      onPress: () => {
-                        Alert.alert(
-                          "Đặt chỗ thành công",
-                          "Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!"
-                        );
-                        navigation.navigate('PaymentScreen' as never);
+                      onPress: () => {   
+                        navigation.navigate("PaymentScreen", {
+                          spotId: "spot-123",
+                          bookingCode: "BC-113",
+                          userName: "Người dùng",
+                          phone: "0123456789",
+                          bookingTime: new Date().toISOString(),
+                          ticketType: "Tiêu chuẩn",
+                          expiryTime: new Date(Date.now() + 3600000).toISOString(),
+                          totalAmount: 5000
+                          
+                        });
                       }
                     }
                   ]

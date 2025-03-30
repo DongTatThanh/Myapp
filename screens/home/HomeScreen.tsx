@@ -28,10 +28,22 @@ const serviceData = [
 
 // Placeholder categories data
 const categoryData = [
-  { id: '1', title: 'Đặt Chỗ', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'HistoryScreen' },
+  { id: '1', title: 'Đặt Chỗ', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'BookingScreen' },
   { id: '2', title: 'Thông Tin Chỗ Đặt', image: require('../../assets/images/SlapScreen1.jpg'), screen:'BookingConfirmationScreen'},
-  { id: '3', title: 'Bảo Hiểm Xe', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'PaymentScreen' },
-  { id: '4', title: 'Về chúng tôi', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'BookingScreen' },
+  { id: '3', title: 'Bảo Hiểm Xe', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'InsuranceScreen' },
+  { id: '4', title: 'Về chúng tôi', image: require('../../assets/images/SlapScreen1.jpg'), screen: 'AboutScreen' },
+]; 
+const bookingData = [
+  {
+    spotId: "spot-123",
+    bookingCode: "BC-113" ,
+    userName: "Người dùng",
+    phone: "0123456789",
+    bookingTime: new Date().toISOString(),
+    ticketType: "Tiêu chuẩn",
+    expiryTime: new Date(Date.now() + 3600000).toISOString(),
+    totalAmount: 50000 
+  },
 ]; 
 
 type ServiceCardProps = {
@@ -70,8 +82,21 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, screen }) => 
     <TouchableOpacity 
       style={styles.categoryCard}
       onPress={() => {
-        navigation.navigate(screen);
-      }} 
+        if (screen === 'BookingConfirmationScreen') {
+          navigation.navigate(screen, {
+            spotId: "spot-123",
+            bookingCode: "BC-113",
+            userName: "Người dùng",
+            phone: "0123456789",
+            bookingTime: new Date().toISOString(),
+            ticketType: "Tiêu chuẩn",
+            expiryTime: new Date(Date.now() + 3600000).toISOString(),
+            totalAmount: 50000
+          });
+        } else {
+          navigation.navigate(screen);
+        }
+      }}
     >
       <View style={styles.categoryIconContainer}>
         <Image source={image} style={styles.categoryIcon} resizeMode="contain" />
@@ -171,7 +196,8 @@ const HomeScreen: React.FC = () => {
         
         {/* Promo Banner */}
         <View style={styles.promoBannerContainer}>
-          <TouchableOpacity style={styles.promoBanner}>
+          <TouchableOpacity style={styles.promoBanner}  
+          onPress={() =>navigation.navigate('SpecialOffersScreen')}>
             <Image 
               source={require('../../assets/images/SlapScreen1.jpg')} 
               style={styles.promoBannerImage}
